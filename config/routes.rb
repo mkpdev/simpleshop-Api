@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     post 'users/login', to: 'users#login'
     post 'sign_up', to: 'users#create', as: :sign_up
+    resources :regions
   end
 
   devise_for :users
