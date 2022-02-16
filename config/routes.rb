@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     post 'users/login', to: 'users#login'
     post 'sign_up', to: 'users#create', as: :sign_up
     resources :regions
+    resources :products
   end
 
   devise_for :users
