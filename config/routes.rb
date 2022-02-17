@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :regions
     resources :products
     resources :orders
+    resources :items
   end
 
   devise_for :users
