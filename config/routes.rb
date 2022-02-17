@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post 'sign_up', to: 'users#create', as: :sign_up
     resources :regions
     resources :products
+    resources :orders
   end
 
   devise_for :users
