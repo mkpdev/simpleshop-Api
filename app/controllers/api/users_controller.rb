@@ -15,6 +15,7 @@ class Api::UsersController < Api::ApiController
   # POST /api/users/login
   def login
     @user = User.find_by_email(params[:email])
+    render json: { error: 'User not found' }, status: :unauthorized and return if @user.nil?
     if @user.valid_password?(params[:password])
       token = JWT.encode({user_id: @user.id}, Rails.application.secrets.secret_key_base)
       render json: { token: token, email: @user.email }, status: :ok
