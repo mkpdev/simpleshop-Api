@@ -39,6 +39,16 @@ class Api::ProductsController < Api::ApiController
     end
   end
 
+  # GET /api/products/:id
+  def show
+    if @product.present?
+      render json: @product, status: :ok
+    else
+      render json: { errors:  "Product Not Found"},
+        status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_product
